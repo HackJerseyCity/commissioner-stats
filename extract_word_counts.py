@@ -26,6 +26,7 @@ ROOT = Path(__file__).parent
 PDF_DIR = ROOT / "pdfs" / "2025"
 OCR_DIR = ROOT / "ocr"
 OUTPUT_JSON = ROOT / "commissioner_word_counts.json"
+CHART_HTML = ROOT / "chart.html"
 
 COMMISSIONER_PATTERNS = {
     r"CHAIRMAN\s+ROMANO": "Anthony Romano",
@@ -280,11 +281,52 @@ def cmd_parse(args) -> None:
     print(f"Total meetings: {len(results['meetings'])}", file=sys.stderr)
 
 
+# ---------- Chart ----------
+
+def cmd_chart(args) -> None:
+    if not OUTPUT_JSON.exists():
+        print(
+            f"Error: {OUTPUT_JSON.name} not found. "
+            f"Run `{Path(__file__).name} parse` (or `all`) first.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    if not CHART_HTML.exists():
+        print(f"Error: {CHART_HTML.name} not found.", file=sys.stderr)
+        sys.exit(1)
+
+    data = json.loads(OUTPUT_JSON.read_text(encoding="utf-8"))
+    json_str = json.dumps(data)
+    html = CHART_HTML.read_text(encoding="utf-8")
+
+    pattern = re.compile(r"const DATA = \{.*?\};", re.DOTALL)
+    match = pattern.search(html)
+    if not match:
+        print(
+            f"Error: couldn't find `const DATA = {{...}};` in "
+            f"{CHART_HTML.name} — the chart template may have changed.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    new_html = (
+        html[: match.start()]
+        + f"const DATA = {json_str};"
+        + html[match.end():]
+    )
+    CHART_HTML.write_text(new_html, encoding="utf-8")
+    print(
+        f"Rebuilt {CHART_HTML.name} with {len(data.get('meetings', []))} meetings.",
+        file=sys.stderr,
+    )
+
+
 # ---------- All ----------
 
 def cmd_all(args) -> None:
     cmd_ocr(args)
     cmd_parse(args)
+    cmd_chart(args)
 
 
 # ---------- CLI ----------
@@ -294,7 +336,9 @@ def main():
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
-    sub = p.add_subparsers(dest="command", required=True, metavar="{ocr,parse,all}")
+    sub = p.add_subparsers(
+        dest="command", required=True, metavar="{ocr,parse,chart,all}"
+    )
 
     p_ocr = sub.add_parser("ocr", help="OCR PDFs and cache text to ./ocr/")
     p_ocr.add_argument("--force", action="store_true",
@@ -304,7 +348,12 @@ def main():
     p_parse = sub.add_parser("parse", help="Parse the cached OCR text into JSON")
     p_parse.set_defaults(func=cmd_parse)
 
-    p_all = sub.add_parser("all", help="Run `ocr` (using cache) then `parse`")
+    p_chart = sub.add_parser(
+        "chart", help="Re-embed commissioner_word_counts.json into chart.html"
+    )
+    p_chart.set_defaults(func=cmd_chart)
+
+    p_all = sub.add_parser("all", help="Run `ocr` (using cache), then `parse`, then `chart`")
     p_all.add_argument("--force", action="store_true",
                        help="Re-OCR every PDF even if a cached transcript exists")
     p_all.set_defaults(func=cmd_all)
