@@ -55,6 +55,58 @@ ANY_SPEAKER_RE = re.compile(
 )
 
 
+# Standard English stop words (NLTK-derived) — filtered out before counting.
+STOP_WORDS = frozenset({
+    "i", "me", "my", "myself", "we", "our", "ours", "ourselves",
+    "you", "you're", "you've", "you'll", "you'd",
+    "your", "yours", "yourself", "yourselves",
+    "he", "him", "his", "himself",
+    "she", "she's", "her", "hers", "herself",
+    "it", "it's", "its", "itself",
+    "they", "them", "their", "theirs", "themselves",
+    "what", "which", "who", "whom",
+    "this", "that", "that'll", "these", "those",
+    "am", "is", "are", "was", "were", "be", "been", "being",
+    "have", "has", "had", "having",
+    "do", "does", "did", "doing",
+    "a", "an", "the",
+    "and", "but", "if", "or", "because", "as", "until", "while",
+    "of", "at", "by", "for", "with", "about", "against", "between", "into",
+    "through", "during", "before", "after", "above", "below",
+    "to", "from", "up", "down", "in", "out", "on", "off", "over", "under",
+    "again", "further", "then", "once",
+    "here", "there", "when", "where", "why", "how",
+    "all", "any", "both", "each", "few", "more", "most", "other", "some", "such",
+    "no", "nor", "not", "only", "own", "same", "so", "than", "too", "very",
+    "s", "t", "can", "will", "just", "don", "should", "should've", "now",
+    "d", "ll", "m", "o", "re", "ve", "y",
+    "ain", "aren", "couldn", "didn", "doesn", "hadn", "hasn", "haven",
+    "isn", "ma", "mightn", "mustn", "needn", "shan", "shouldn",
+    "wasn", "weren", "won", "wouldn",
+    # Common contracted forms
+    "i'm", "we're", "they're", "we've", "they've", "i've",
+    "i'd", "we'd", "they'd", "i'll", "we'll", "they'll",
+    "that's", "there's", "what's", "let's", "let",
+    "don't", "doesn't", "didn't", "won't", "wouldn't", "shouldn't",
+    "couldn't", "can't", "cannot", "isn't", "aren't", "wasn't", "weren't",
+    "hasn't", "haven't", "hadn't", "mightn't", "mustn't", "needn't", "shan't",
+    "aren't",
+})
+
+# Voting / parliamentary affirmations — filtered out before counting.
+VOTE_WORDS = frozenset({
+    "yes", "yeah", "yea", "yay", "yep", "ya",
+    "no", "nope",
+    "aye", "ayes", "nay", "nays",
+    "present", "absent",
+    "abstain", "abstains", "abstained", "abstaining",
+    "second", "seconded",
+    "ok", "okay",
+})
+
+NOISE_WORDS = STOP_WORDS | VOTE_WORDS
+
+
 # ---------- OCR ----------
 
 def _ocr_one_page(pdf_path: str, page_num: int) -> str:
@@ -156,6 +208,21 @@ def clean_text(text: str) -> str:
     return text
 
 
+def _normalize_token(token: str) -> str:
+    """Strip surrounding punctuation and lowercase, preserving internal apostrophes."""
+    return re.sub(r"^\W+|\W+$", "", token).lower()
+
+
+def count_content_words(segment: str) -> int:
+    """Count words in a segment, excluding stop words and voting affirmations."""
+    n = 0
+    for token in segment.split():
+        normalized = _normalize_token(token)
+        if normalized and normalized not in NOISE_WORDS:
+            n += 1
+    return n
+
+
 def extract_commissioner_words(text: str) -> dict[str, int]:
     text = clean_text(text)
     word_counts = defaultdict(int)
@@ -173,7 +240,7 @@ def extract_commissioner_words(text: str) -> dict[str, int]:
         next_speaker = ANY_SPEAKER_RE.search(text, start)
         end = next_speaker.start() if next_speaker else len(text)
         segment = text[start:end].strip()
-        word_counts[canonical_name] += len(segment.split())
+        word_counts[canonical_name] += count_content_words(segment)
     return dict(word_counts)
 
 
