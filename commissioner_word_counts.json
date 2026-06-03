@@ -51,19 +51,6 @@
     },
     {
       "date": "2025-01-21",
-      "meeting_type": "Special",
-      "file": "2025-01-21_Special_Minutes.pdf",
-      "commissioner_word_counts": {
-        "Yraida Aponte-Lipski": 1,
-        "Robert Baselice": 104,
-        "Fanny Cedeno": 1,
-        "William O'Dea": 1,
-        "Anthony Romano": 511
-      },
-      "total_commissioner_words": 618
-    },
-    {
-      "date": "2025-01-21",
       "meeting_type": "Caucus",
       "file": "2025-01-21_Caucus_Minutes.pdf",
       "commissioner_word_counts": {
@@ -77,6 +64,19 @@
         "Albert Cifelli": 1091
       },
       "total_commissioner_words": 3381
+    },
+    {
+      "date": "2025-01-21",
+      "meeting_type": "Special",
+      "file": "2025-01-21_Special_Minutes.pdf",
+      "commissioner_word_counts": {
+        "Yraida Aponte-Lipski": 1,
+        "Robert Baselice": 104,
+        "Fanny Cedeno": 1,
+        "William O'Dea": 1,
+        "Anthony Romano": 511
+      },
+      "total_commissioner_words": 618
     },
     {
       "date": "2025-01-23",
@@ -739,23 +739,6 @@
     },
     {
       "date": "2025-12-22",
-      "meeting_type": "Regular",
-      "file": "2025-12-22_Regular_Minutes.pdf",
-      "commissioner_word_counts": {
-        "Yraida Aponte-Lipski": 145,
-        "Robert Baselice": 136,
-        "Fanny Cedeno": 6,
-        "Albert Cifelli": 293,
-        "Kenneth Kopacz": 4,
-        "William O'Dea": 505,
-        "Jerry Walker": 319,
-        "Anthony Romano": 232,
-        "Caridad Rodriguez": 36
-      },
-      "total_commissioner_words": 1676
-    },
-    {
-      "date": "2025-12-22",
       "meeting_type": "Caucus",
       "file": "2025-12-22_Caucus_Minutes.pdf",
       "commissioner_word_counts": {
@@ -770,6 +753,23 @@
         "Jerry Walker": 6
       },
       "total_commissioner_words": 5981
+    },
+    {
+      "date": "2025-12-22",
+      "meeting_type": "Regular",
+      "file": "2025-12-22_Regular_Minutes.pdf",
+      "commissioner_word_counts": {
+        "Yraida Aponte-Lipski": 145,
+        "Robert Baselice": 136,
+        "Fanny Cedeno": 6,
+        "Albert Cifelli": 293,
+        "Kenneth Kopacz": 4,
+        "William O'Dea": 505,
+        "Jerry Walker": 319,
+        "Anthony Romano": 232,
+        "Caridad Rodriguez": 36
+      },
+      "total_commissioner_words": 1676
     }
   ],
   "summary_by_type": {
