@@ -306,38 +306,38 @@
 
 <div class="masthead">
   <div class="brand">The Hudson <span>Record</span> · Civic Data</div>
-  <div class="meta">Vol. 01 · 2025 Session · 47 Meetings</div>
+  <div class="meta">Vol. 01 · <span data-d="year"></span> Session · <span data-d="meeting-count"></span> Meetings</div>
 </div>
 
 <header class="hero">
-  <div class="kicker">Hudson County Board of Commissioners · 2025</div>
-  <h1>In <em>2025</em>, one commissioner spoke 113 times more than another.</h1>
-  <p class="dek">Across 47 public meetings of the Hudson County Board this year, three commissioners produced nine of every ten words on the record. The other six — elected to represent the same residents — were nearly silent.</p>
+  <div class="kicker">Hudson County Board of Commissioners · <span data-d="year"></span></div>
+  <h1>In <em><span data-d="year"></span></em>, one commissioner spoke <span data-d="ratio"></span> times more than another.</h1>
+  <p class="dek">Across <span data-d="meeting-count"></span> public meetings of the Hudson County Board this year, <span data-d="dom-group-word"></span> commissioners produced <span data-d="dom-words-of-ten"></span> of every ten words on the record. The other <span data-d="rest-group-word"></span> — elected to represent the same residents — were nearly silent.</p>
 </header>
 
 <div class="stats">
   <div class="stat accent">
-    <div class="num">97,204</div>
-    <div class="label">Words by <strong>William O'Dea</strong>, the most-vocal commissioner</div>
+    <div class="num" data-d="top-words"></div>
+    <div class="label">Words by <strong data-d="top-name"></strong>, the most-vocal commissioner</div>
   </div>
   <div class="stat">
-    <div class="num">858</div>
-    <div class="label">Words by <strong>Fanny Cedeno</strong>, the least-vocal commissioner</div>
+    <div class="num" data-d="bot-words"></div>
+    <div class="label">Words by <strong data-d="bot-name"></strong>, the least-vocal commissioner</div>
   </div>
   <div class="stat">
-    <div class="num">90%</div>
-    <div class="label">Share of all speech produced by the top 3 of 9 commissioners</div>
+    <div class="num" data-d="dom-share-pct"></div>
+    <div class="label">Share of all speech produced by the top <span data-d="dom-group-size"></span> of <span data-d="total-commissioners"></span> commissioners</div>
   </div>
   <div class="stat">
-    <div class="num">18,489</div>
-    <div class="label">Words at the loudest meeting of the year (May 22 Regular)</div>
+    <div class="num" data-d="loudest-words"></div>
+    <div class="label">Words at the loudest meeting of the year (<span data-d="loudest-meta"></span>)</div>
   </div>
 </div>
 
 <section>
   <div class="seclabel"><span class="rule"></span>§ 01 — The Ranking</div>
-  <h2>A Board with <em>three voices</em>.</h2>
-  <p class="lede">Total words spoken across all 47 meetings. The top three — O'Dea, Romano, and Cifelli — together account for 90% of every word on the public record. The remaining six commissioners share what's left.</p>
+  <h2>A Board with <em><span data-d="dom-group-word"></span> voices</em>.</h2>
+  <p class="lede">Total words spoken across all <span data-d="meeting-count"></span> meetings. The top <span data-d="dom-group-word"></span> — <span data-d="dom-names"></span> — together account for <span data-d="dom-share-pct"></span> of every word on the public record. The remaining <span data-d="rest-group-word"></span> commissioners share what's left.</p>
 
   <div class="ranks">
     <div class="ranks-head">
@@ -350,43 +350,43 @@
     <div id="ranks"></div>
   </div>
 
-  <blockquote class="pull">If you live in a district represented by one of the bottom six, <strong>your commissioner is barely speaking</strong> at the meetings where county business is decided.</blockquote>
+  <blockquote class="pull">If you live in a district represented by one of the bottom <span data-d="rest-group-word"></span>, <strong>your commissioner is barely speaking</strong> at the meetings where county business is decided.</blockquote>
 </section>
 
 <section>
   <div class="seclabel"><span class="rule"></span>§ 02 — Where the words happen</div>
   <h2>Caucus vs. Regular vs. <em>everything else</em>.</h2>
-  <p class="lede">Caucus meetings — the pre-meeting deliberative sessions — host slightly more total commissioner speech than the official Regular meetings where votes are cast. The mix varies sharply by commissioner.</p>
+  <p class="lede">In <span data-d="year"></span>, Caucus meetings yielded <span data-d="caucus-total"></span> recorded commissioner words; Regular meetings, <span data-d="regular-total"></span>. The mix varies sharply by commissioner.</p>
 
   <div class="chart-card">
-    <div class="ckicker">2025 · stacked by meeting type</div>
+    <div class="ckicker"><span data-d="year"></span> · stacked by meeting type</div>
     <h3>How each commissioner divided their time</h3>
     <div class="chart-frame tall"><canvas id="stackedBar"></canvas></div>
-    <div class="annot">O'Dea and Romano are the only two commissioners who speak meaningfully in <em>both</em> Caucus and Regular sessions. Cifelli's volume is unusually weighted toward Regular meetings — driven by a single 8,998-word performance at the May 22 session.</div>
+    <div class="annot" data-d="biggest-performance-annot"></div>
   </div>
 </section>
 
 <section>
   <div class="seclabel"><span class="rule"></span>§ 03 — Year in motion</div>
   <h2>The shape of a <em>speaking year</em>.</h2>
-  <p class="lede">Words per meeting, top five speakers only, across the 2025 calendar. Spikes generally line up with budget hearings, contentious resolutions, and end-of-year cleanup.</p>
+  <p class="lede">Words per meeting, top five speakers only, across the <span data-d="year"></span> calendar. Spikes generally line up with budget hearings, contentious resolutions, and end-of-year cleanup.</p>
 
   <div class="chart-card">
-    <div class="ckicker">2025 · Regular meetings · 22 sessions · log scale</div>
+    <div class="ckicker"><span data-d="year"></span> · Regular meetings · <span data-d="regular-count"></span> sessions · log scale</div>
     <h3>Words per meeting — Regular</h3>
     <div class="chart-frame"><canvas id="timelineRegular"></canvas></div>
-    <div class="annot">Plotted on a logarithmic Y axis so the quieter speakers stay legible alongside the spikes. May 22 was the loudest single Regular meeting of the year: Cifelli alone produced 8,998 words. August 14 saw Romano spike to 5,474 — three times any other speaker that night.</div>
+    <div class="annot" data-d="regular-annot"></div>
   </div>
   <div class="chart-card">
-    <div class="ckicker">2025 · Caucus meetings · 22 sessions · log scale</div>
+    <div class="ckicker"><span data-d="year"></span> · Caucus meetings · <span data-d="caucus-count"></span> sessions · log scale</div>
     <h3>Words per meeting — Caucus</h3>
     <div class="chart-frame"><canvas id="timelineCaucus"></canvas></div>
-    <div class="annot">O'Dea's Caucus baseline runs roughly 2,000–4,000 words per meeting all year. Romano's largest single Caucus contribution — 7,589 words on July 15 — is an outlier even for him.</div>
+    <div class="annot" data-d="caucus-annot"></div>
   </div>
 </section>
 
 <footer>
-  <strong>Source.</strong> Public meeting minutes published by the Hudson County Board of Commissioners, January through December 2025. Word counts extracted by automated OCR across 47 archived PDFs (22 Regular sessions, 22 Caucus sessions, 2 Special meetings, and the January 2 Reorganization). Commissioners with no recorded speech in a given meeting are omitted from that meeting's tally. Speaker attribution is taken from the minutes as published.
+  <strong>Source.</strong> Public meeting minutes published by the Hudson County Board of Commissioners, <span data-d="date-range"></span>. Word counts extracted by automated OCR across <span data-d="meeting-count"></span> archived PDFs (<span data-d="type-breakdown"></span>), with common English stop words and parliamentary voting affirmations excluded from each commissioner's tally. Speaker attribution is taken from the minutes as published.
 </footer>
 
 </div>
@@ -394,28 +394,165 @@
 <script>
 const DATA = {"meetings": [{"date": "2025-01-02", "meeting_type": "Reorg", "file": "2025-01-02_Reorg_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 7, "Fanny Cedeno": 0, "Albert Cifelli": 46, "Kenneth Kopacz": 8, "William O'Dea": 119, "Caridad Rodriguez": 0, "Anthony Romano": 271, "Yraida Aponte-Lipski": 20, "Jerry Walker": 49}, "total_commissioner_words": 520}, {"date": "2025-01-07", "meeting_type": "Caucus", "file": "2025-01-07_Caucus_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 2, "Robert Baselice": 256, "Fanny Cedeno": 0, "Albert Cifelli": 155, "William O'Dea": 1035, "Jerry Walker": 72, "Anthony Romano": 57}, "total_commissioner_words": 1577}, {"date": "2025-01-09", "meeting_type": "Regular", "file": "2025-01-09_Regular_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 34, "Albert Cifelli": 377, "Kenneth Kopacz": 8, "William O'Dea": 1060, "Caridad Rodriguez": 3, "Jerry Walker": 170, "Anthony Romano": 164, "Yraida Aponte-Lipski": 3, "Fanny Cedeno": 6}, "total_commissioner_words": 1825}, {"date": "2025-01-21", "meeting_type": "Caucus", "file": "2025-01-21_Caucus_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 3, "Robert Baselice": 18, "Fanny Cedeno": 0, "Anthony Romano": 155, "William O'Dea": 881, "Caridad Rodriguez": 8, "Jerry Walker": 88, "Albert Cifelli": 507}, "total_commissioner_words": 1660}, {"date": "2025-01-21", "meeting_type": "Special", "file": "2025-01-21_Special_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 0, "Robert Baselice": 34, "Fanny Cedeno": 0, "William O'Dea": 0, "Anthony Romano": 254}, "total_commissioner_words": 288}, {"date": "2025-01-23", "meeting_type": "Regular", "file": "2025-01-23_Regular_Minutes.pdf", "commissioner_word_counts": {"Anthony Romano": 351, "Robert Baselice": 15, "Fanny Cedeno": 22, "Albert Cifelli": 323, "Kenneth Kopacz": 26, "William O'Dea": 736, "Jerry Walker": 2, "Yraida Aponte-Lipski": 4, "Caridad Rodriguez": 22}, "total_commissioner_words": 1501}, {"date": "2025-02-11", "meeting_type": "Caucus", "file": "2025-02-11_Caucus_Minutes.pdf", "commissioner_word_counts": {"Albert Cifelli": 232, "Robert Baselice": 3, "Anthony Romano": 590, "Kenneth Kopacz": 11, "William O'Dea": 1966, "Caridad Rodriguez": 2, "Jerry Walker": 10, "Yraida Aponte-Lipski": 1}, "total_commissioner_words": 2815}, {"date": "2025-02-13", "meeting_type": "Regular", "file": "2025-02-13_Regular_Minutes.pdf", "commissioner_word_counts": {"Anthony Romano": 654, "Yraida Aponte-Lipski": 0, "Fanny Cedeno": 0, "Albert Cifelli": 20, "William O'Dea": 131, "Jerry Walker": 139, "Robert Baselice": 31, "Caridad Rodriguez": 0}, "total_commissioner_words": 975}, {"date": "2025-02-25", "meeting_type": "Caucus", "file": "2025-02-25_Caucus_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 43, "Fanny Cedeno": 0, "William O'Dea": 723, "Caridad Rodriguez": 1, "Jerry Walker": 52, "Anthony Romano": 136, "Kenneth Kopacz": 5, "Albert Cifelli": 129}, "total_commissioner_words": 1089}, {"date": "2025-02-27", "meeting_type": "Regular", "file": "2025-02-27_Regular_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 13, "Fanny Cedeno": 1, "Albert Cifelli": 368, "Kenneth Kopacz": 49, "William O'Dea": 834, "Caridad Rodriguez": 11, "Jerry Walker": 156, "Anthony Romano": 316, "Yraida Aponte-Lipski": 0}, "total_commissioner_words": 1748}, {"date": "2025-03-11", "meeting_type": "Caucus", "file": "2025-03-11_Caucus_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 1, "Albert Cifelli": 27, "William O'Dea": 274, "Caridad Rodriguez": 0, "Jerry Walker": 143, "Anthony Romano": 86, "Robert Baselice": 7, "Kenneth Kopacz": 2}, "total_commissioner_words": 540}, {"date": "2025-03-13", "meeting_type": "Regular", "file": "2025-03-13_Regular_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 24, "Robert Baselice": 1, "Fanny Cedeno": 0, "Albert Cifelli": 24, "Kenneth Kopacz": 33, "William O'Dea": 1066, "Caridad Rodriguez": 2, "Jerry Walker": 138, "Anthony Romano": 123}, "total_commissioner_words": 1411}, {"date": "2025-03-25", "meeting_type": "Caucus", "file": "2025-03-25_Caucus_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 2, "Robert Baselice": 61, "Fanny Cedeno": 0, "Anthony Romano": 198, "Kenneth Kopacz": 51, "William O'Dea": 1093, "Jerry Walker": 1, "Albert Cifelli": 126}, "total_commissioner_words": 1532}, {"date": "2025-03-27", "meeting_type": "Regular", "file": "2025-03-27_Regular_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 34, "Fanny Cedeno": 1, "Kenneth Kopacz": 35, "Caridad Rodriguez": 0, "Anthony Romano": 103, "Albert Cifelli": 0, "William O'Dea": 769, "Jerry Walker": 0, "Yraida Aponte-Lipski": 14}, "total_commissioner_words": 956}, {"date": "2025-04-08", "meeting_type": "Caucus", "file": "2025-04-08_Caucus_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 80, "Fanny Cedeno": 0, "Kenneth Kopacz": 3, "William O'Dea": 2135, "Caridad Rodriguez": 1, "Jerry Walker": 9, "Anthony Romano": 581, "Yraida Aponte-Lipski": 6, "Albert Cifelli": 3}, "total_commissioner_words": 2818}, {"date": "2025-04-10", "meeting_type": "Regular", "file": "2025-04-10_Regular_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 31, "Robert Baselice": 17, "Fanny Cedeno": 23, "Kenneth Kopacz": 22, "William O'Dea": 1935, "Jerry Walker": 3, "Anthony Romano": 742, "Albert Cifelli": 52, "Caridad Rodriguez": 2}, "total_commissioner_words": 2827}, {"date": "2025-04-22", "meeting_type": "Caucus", "file": "2025-04-22_Caucus_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 47, "Fanny Cedeno": 2, "Albert Cifelli": 173, "Kenneth Kopacz": 29, "William O'Dea": 1531, "Caridad Rodriguez": 2, "Anthony Romano": 383, "Jerry Walker": 2, "Yraida Aponte-Lipski": 62}, "total_commissioner_words": 2231}, {"date": "2025-04-24", "meeting_type": "Regular", "file": "2025-04-24_Regular_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 340, "Albert Cifelli": 739, "Fanny Cedeno": 14, "William O'Dea": 2240, "Caridad Rodriguez": 4, "Anthony Romano": 339, "Jerry Walker": 148, "Kenneth Kopacz": 29, "Yraida Aponte-Lipski": 21}, "total_commissioner_words": 3874}, {"date": "2025-05-06", "meeting_type": "Caucus", "file": "2025-05-06_Caucus_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 39, "Robert Baselice": 1, "Fanny Cedeno": 0, "Kenneth Kopacz": 77, "William O'Dea": 1041, "Jerry Walker": 0, "Anthony Romano": 4226}, "total_commissioner_words": 5384}, {"date": "2025-05-08", "meeting_type": "Regular", "file": "2025-05-08_Regular_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 1, "Robert Baselice": 27, "Fanny Cedeno": 6, "Kenneth Kopacz": 27, "William O'Dea": 1461, "Jerry Walker": 19, "Anthony Romano": 575, "Caridad Rodriguez": 43, "Albert Cifelli": 100}, "total_commissioner_words": 2259}, {"date": "2025-05-20", "meeting_type": "Caucus", "file": "2025-05-20_Caucus_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 169, "Fanny Cedeno": 0, "Kenneth Kopacz": 0, "William O'Dea": 1418, "Caridad Rodriguez": 3, "Jerry Walker": 242, "Anthony Romano": 272, "Robert Baselice": 587, "Albert Cifelli": 879}, "total_commissioner_words": 3570}, {"date": "2025-05-22", "meeting_type": "Regular", "file": "2025-05-22_Regular_Minutes.pdf", "commissioner_word_counts": {"Anthony Romano": 1564, "Fanny Cedeno": 33, "Kenneth Kopacz": 334, "William O'Dea": 2329, "Yraida Aponte-Lipski": 40, "Caridad Rodriguez": 29, "Robert Baselice": 220, "Jerry Walker": 208, "Albert Cifelli": 8146}, "total_commissioner_words": 12903}, {"date": "2025-06-11", "meeting_type": "Caucus", "file": "2025-06-11_Caucus_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 2, "Fanny Cedeno": 0, "William O'Dea": 132, "Anthony Romano": 337, "Jerry Walker": 59, "Kenneth Kopacz": 22, "Caridad Rodriguez": 1, "Albert Cifelli": 33, "Robert Baselice": 0}, "total_commissioner_words": 586}, {"date": "2025-06-11", "meeting_type": "Special", "file": "2025-06-11_Special_Budget_Hearing_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 2, "Robert Baselice": 83, "Fanny Cedeno": 4, "Kenneth Kopacz": 53, "William O'Dea": 1345, "Caridad Rodriguez": 34, "Jerry Walker": 76, "Anthony Romano": 857, "Albert Cifelli": 1157}, "total_commissioner_words": 3611}, {"date": "2025-06-12", "meeting_type": "Regular", "file": "2025-06-12_Regular_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 0, "Robert Baselice": 117, "Fanny Cedeno": 0, "Albert Cifelli": 625, "Kenneth Kopacz": 16, "William O'Dea": 286, "Caridad Rodriguez": 0, "Jerry Walker": 1, "Anthony Romano": 375}, "total_commissioner_words": 1420}, {"date": "2025-06-24", "meeting_type": "Caucus", "file": "2025-06-24_Caucus_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 23, "Fanny Cedeno": 0, "Albert Cifelli": 151, "William O'Dea": 2023, "Anthony Romano": 729, "Kenneth Kopacz": 69, "Yraida Aponte-Lipski": 3, "Jerry Walker": 79, "Caridad Rodriguez": 1}, "total_commissioner_words": 3078}, {"date": "2025-06-26", "meeting_type": "Regular", "file": "2025-06-26_Regular_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 25, "Albert Cifelli": 110, "William O'Dea": 468, "Caridad Rodriguez": 79, "Jerry Walker": 209, "Anthony Romano": 726, "Kenneth Kopacz": 148, "Yraida Aponte-Lipski": 54, "Fanny Cedeno": 1}, "total_commissioner_words": 1820}, {"date": "2025-07-15", "meeting_type": "Caucus", "file": "2025-07-15_Caucus_Minutes.pdf", "commissioner_word_counts": {"Anthony Romano": 6504, "Yraida Aponte-Lipski": 26, "William O'Dea": 1374, "Robert Baselice": 6, "Fanny Cedeno": 30, "Albert Cifelli": 739, "Caridad Rodriguez": 19, "Jerry Walker": 141}, "total_commissioner_words": 8839}, {"date": "2025-07-17", "meeting_type": "Regular", "file": "2025-07-17_Regular_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 216, "Anthony Romano": 1218, "Robert Baselice": 219, "Fanny Cedeno": 168, "William O'Dea": 1316, "Caridad Rodriguez": 184, "Albert Cifelli": 995}, "total_commissioner_words": 4316}, {"date": "2025-08-12", "meeting_type": "Caucus", "file": "2025-08-12_Caucus_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 11, "Robert Baselice": 21, "Kenneth Kopacz": 199, "William O'Dea": 1082, "Anthony Romano": 672, "Fanny Cedeno": 1, "Caridad Rodriguez": 0, "Albert Cifelli": 5046, "Jerry Walker": 39}, "total_commissioner_words": 7071}, {"date": "2025-08-14", "meeting_type": "Regular", "file": "2025-08-14_Regular_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 54, "Fanny Cedeno": 2, "William O'Dea": 358, "Caridad Rodriguez": 43, "Kenneth Kopacz": 97, "Jerry Walker": 35, "Anthony Romano": 5067, "Albert Cifelli": 229, "Yraida Aponte-Lipski": 23}, "total_commissioner_words": 5908}, {"date": "2025-09-09", "meeting_type": "Caucus", "file": "2025-09-09_Caucus_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 3, "Fanny Cedeno": 0, "Kenneth Kopacz": 3, "William O'Dea": 1842, "Caridad Rodriguez": 1, "Jerry Walker": 1, "Anthony Romano": 181, "Albert Cifelli": 370, "Yraida Aponte-Lipski": 0}, "total_commissioner_words": 2401}, {"date": "2025-09-11", "meeting_type": "Regular", "file": "2025-09-11_Regular_Minutes.pdf", "commissioner_word_counts": {"Anthony Romano": 311, "Yraida Aponte-Lipski": 32, "Fanny Cedeno": 4, "William O'Dea": 558, "Caridad Rodriguez": 17, "Kenneth Kopacz": 70, "Jerry Walker": 6, "Robert Baselice": 4, "Albert Cifelli": 49}, "total_commissioner_words": 1051}, {"date": "2025-09-23", "meeting_type": "Caucus", "file": "2025-09-23_Caucus_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 100, "Kenneth Kopacz": 0, "William O'Dea": 1105, "Jerry Walker": 11, "Anthony Romano": 412, "Yraida Aponte-Lipski": 6, "Albert Cifelli": 226, "Caridad Rodriguez": 8}, "total_commissioner_words": 1868}, {"date": "2025-09-25", "meeting_type": "Regular", "file": "2025-09-25_Regular_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 11, "Fanny Cedeno": 15, "William O'Dea": 640, "Caridad Rodriguez": 2, "Anthony Romano": 5392, "Yraida Aponte-Lipski": 2, "Albert Cifelli": 505, "Kenneth Kopacz": 9, "Jerry Walker": 2}, "total_commissioner_words": 6578}, {"date": "2025-10-07", "meeting_type": "Caucus", "file": "2025-10-07_Caucus_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 201, "Fanny Cedeno": 1, "Albert Cifelli": 105, "Anthony Romano": 402, "William O'Dea": 1622, "Yraida Aponte-Lipski": 128, "Kenneth Kopacz": 0, "Jerry Walker": 1}, "total_commissioner_words": 2460}, {"date": "2025-10-09", "meeting_type": "Regular", "file": "2025-10-09_Regular_Minutes.pdf", "commissioner_word_counts": {"Anthony Romano": 628, "Robert Baselice": 219, "Kenneth Kopacz": 1, "William O'Dea": 960, "Jerry Walker": 8, "Fanny Cedeno": 13, "Albert Cifelli": 133, "Yraida Aponte-Lipski": 1, "Caridad Rodriguez": 235}, "total_commissioner_words": 2198}, {"date": "2025-10-21", "meeting_type": "Caucus", "file": "2025-10-21_Caucus_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 0, "Fanny Cedeno": 0, "Albert Cifelli": 374, "Kenneth Kopacz": 44, "William O'Dea": 977, "Anthony Romano": 387, "Yraida Aponte-Lipski": 5}, "total_commissioner_words": 1787}, {"date": "2025-10-23", "meeting_type": "Regular", "file": "2025-10-23_Regular_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 0, "Robert Baselice": 45, "Fanny Cedeno": 14, "Kenneth Kopacz": 3, "William O'Dea": 499, "Jerry Walker": 46, "Anthony Romano": 130, "Albert Cifelli": 159, "Caridad Rodriguez": 3}, "total_commissioner_words": 899}, {"date": "2025-11-12", "meeting_type": "Caucus", "file": "2025-11-12_Caucus_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 4, "Fanny Cedeno": 5, "Kenneth Kopacz": 1, "William O'Dea": 1265, "Caridad Rodriguez": 0, "Anthony Romano": 297, "Robert Baselice": 1, "Albert Cifelli": 481}, "total_commissioner_words": 2054}, {"date": "2025-11-13", "meeting_type": "Regular", "file": "2025-11-13_Regular_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 33, "Fanny Cedeno": 2, "Kenneth Kopacz": 24, "Jerry Walker": 16, "Anthony Romano": 400, "William O'Dea": 461, "Caridad Rodriguez": 1, "Albert Cifelli": 246}, "total_commissioner_words": 1183}, {"date": "2025-11-24", "meeting_type": "Caucus", "file": "2025-11-24_Caucus_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 4, "Robert Baselice": 143, "Kenneth Kopacz": 49, "William O'Dea": 1165, "Anthony Romano": 298}, "total_commissioner_words": 1659}, {"date": "2025-11-25", "meeting_type": "Regular", "file": "2025-11-25_Regular_Minutes.pdf", "commissioner_word_counts": {"Anthony Romano": 2611, "William O'Dea": 413, "Kenneth Kopacz": 9, "Yraida Aponte-Lipski": 57, "Caridad Rodriguez": 54, "Robert Baselice": 51, "Fanny Cedeno": 23, "Albert Cifelli": 18, "Jerry Walker": 36}, "total_commissioner_words": 3272}, {"date": "2025-12-09", "meeting_type": "Caucus", "file": "2025-12-09_Caucus_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 0, "Robert Baselice": 78, "Kenneth Kopacz": 5, "William O'Dea": 1034, "Jerry Walker": 2, "Albert Cifelli": 187, "Anthony Romano": 544, "Caridad Rodriguez": 6}, "total_commissioner_words": 1856}, {"date": "2025-12-11", "meeting_type": "Regular", "file": "2025-12-11_Regular_Minutes.pdf", "commissioner_word_counts": {"Anthony Romano": 210, "Yraida Aponte-Lipski": 0, "Robert Baselice": 185, "Fanny Cedeno": 1, "Kenneth Kopacz": 19, "William O'Dea": 537, "Caridad Rodriguez": 3, "Jerry Walker": 159, "Albert Cifelli": 518}, "total_commissioner_words": 1632}, {"date": "2025-12-22", "meeting_type": "Caucus", "file": "2025-12-22_Caucus_Minutes.pdf", "commissioner_word_counts": {"Robert Baselice": 116, "Fanny Cedeno": 0, "Albert Cifelli": 318, "Kenneth Kopacz": 8, "William O'Dea": 579, "Anthony Romano": 3462, "Yraida Aponte-Lipski": 3, "Caridad Rodriguez": 1, "Jerry Walker": 3}, "total_commissioner_words": 4490}, {"date": "2025-12-22", "meeting_type": "Regular", "file": "2025-12-22_Regular_Minutes.pdf", "commissioner_word_counts": {"Yraida Aponte-Lipski": 76, "Robert Baselice": 67, "Fanny Cedeno": 0, "Albert Cifelli": 135, "Kenneth Kopacz": 0, "William O'Dea": 248, "Jerry Walker": 150, "Anthony Romano": 100, "Caridad Rodriguez": 31}, "total_commissioner_words": 807}], "summary_by_type": {"Caucus": {"commissioner_word_counts": {"William O'Dea": 26297, "Anthony Romano": 20909, "Albert Cifelli": 10261, "Robert Baselice": 1795, "Jerry Walker": 955, "Kenneth Kopacz": 578, "Yraida Aponte-Lipski": 477, "Caridad Rodriguez": 54, "Fanny Cedeno": 39}, "total_words": 61365, "meeting_count": 22}, "Regular": {"commissioner_word_counts": {"Anthony Romano": 22099, "William O'Dea": 19305, "Albert Cifelli": 13871, "Robert Baselice": 1762, "Jerry Walker": 1651, "Kenneth Kopacz": 959, "Caridad Rodriguez": 768, "Yraida Aponte-Lipski": 599, "Fanny Cedeno": 349}, "total_words": 61363, "meeting_count": 22}, "Reorg": {"commissioner_word_counts": {"Anthony Romano": 271, "William O'Dea": 119, "Jerry Walker": 49, "Albert Cifelli": 46, "Yraida Aponte-Lipski": 20, "Kenneth Kopacz": 8, "Robert Baselice": 7, "Fanny Cedeno": 0, "Caridad Rodriguez": 0}, "total_words": 520, "meeting_count": 1}, "Special": {"commissioner_word_counts": {"William O'Dea": 1345, "Albert Cifelli": 1157, "Anthony Romano": 1111, "Robert Baselice": 117, "Jerry Walker": 76, "Kenneth Kopacz": 53, "Caridad Rodriguez": 34, "Fanny Cedeno": 4, "Yraida Aponte-Lipski": 2}, "total_words": 3899, "meeting_count": 2}}, "summary_by_commissioner": {"Albert Cifelli": {"by_meeting_type": {"Caucus": 10261, "Regular": 13871, "Reorg": 46, "Special": 1157}, "total_words": 25335}, "Anthony Romano": {"by_meeting_type": {"Caucus": 20909, "Regular": 22099, "Reorg": 271, "Special": 1111}, "total_words": 44390}, "Caridad Rodriguez": {"by_meeting_type": {"Caucus": 54, "Regular": 768, "Reorg": 0, "Special": 34}, "total_words": 856}, "Fanny Cedeno": {"by_meeting_type": {"Caucus": 39, "Regular": 349, "Reorg": 0, "Special": 4}, "total_words": 392}, "Jerry Walker": {"by_meeting_type": {"Caucus": 955, "Regular": 1651, "Reorg": 49, "Special": 76}, "total_words": 2731}, "Kenneth Kopacz": {"by_meeting_type": {"Caucus": 578, "Regular": 959, "Reorg": 8, "Special": 53}, "total_words": 1598}, "Robert Baselice": {"by_meeting_type": {"Caucus": 1795, "Regular": 1762, "Reorg": 7, "Special": 117}, "total_words": 3681}, "William O'Dea": {"by_meeting_type": {"Caucus": 26297, "Regular": 19305, "Reorg": 119, "Special": 1345}, "total_words": 47066}, "Yraida Aponte-Lipski": {"by_meeting_type": {"Caucus": 477, "Regular": 599, "Reorg": 20, "Special": 2}, "total_words": 1098}}};
 
+// ---------- Derivations: everything below is computed from DATA ----------
+
+const MEETINGS_VALID = DATA.meetings.filter(m => !m.error);
+
+const COMMISSIONERS_SORTED = Object.entries(DATA.summary_by_commissioner)
+  .sort((a, b) => b[1].total_words - a[1].total_words);
+const TOTAL_WORDS = COMMISSIONERS_SORTED.reduce((s, [, d]) => s + d.total_words, 0);
+const TOTAL_COMMISSIONERS = COMMISSIONERS_SORTED.length;
+const YEAR = MEETINGS_VALID.length ? MEETINGS_VALID[0].date.slice(0, 4) : '';
+
+const TOP = COMMISSIONERS_SORTED[0];
+const BOT = COMMISSIONERS_SORTED[COMMISSIONERS_SORTED.length - 1];
+const RATIO = BOT[1].total_words > 0
+  ? Math.round(TOP[1].total_words / BOT[1].total_words)
+  : 0;
+
+// Smallest N such that top N commissioners account for at least 90% of speech.
+function dominantGroupSize(threshold = 0.9) {
+  let cum = 0;
+  for (let i = 0; i < COMMISSIONERS_SORTED.length; i++) {
+    cum += COMMISSIONERS_SORTED[i][1].total_words;
+    if (cum / TOTAL_WORDS >= threshold) return i + 1;
+  }
+  return COMMISSIONERS_SORTED.length;
+}
+const DOM_N = dominantGroupSize(0.9);
+const REST_N = TOTAL_COMMISSIONERS - DOM_N;
+const DOM_SHARE = COMMISSIONERS_SORTED.slice(0, DOM_N)
+  .reduce((s, [, d]) => s + d.total_words, 0) / TOTAL_WORDS;
+
+const MONTHS = ['January','February','March','April','May','June',
+                'July','August','September','October','November','December'];
+function fmtDate(iso) {
+  const [, m, d] = iso.split('-');
+  return `${MONTHS[+m - 1]} ${+d}`;
+}
+
+const NUMBER_WORDS = ['zero','one','two','three','four','five','six','seven',
+                      'eight','nine','ten','eleven','twelve'];
+function num2word(n) { return NUMBER_WORDS[n] || String(n); }
+
+function biggestPerformance(meetingType /* or null for any */) {
+  let best = { name: null, words: 0, date: null, type: meetingType };
+  for (const m of MEETINGS_VALID) {
+    if (meetingType && m.meeting_type !== meetingType) continue;
+    for (const [name, w] of Object.entries(m.commissioner_word_counts || {})) {
+      if (w > best.words) best = { name, words: w, date: m.date, type: m.meeting_type };
+    }
+  }
+  return best;
+}
+
+function meetingCountByType() {
+  const c = {};
+  for (const m of MEETINGS_VALID) c[m.meeting_type] = (c[m.meeting_type] || 0) + 1;
+  return c;
+}
+const TYPE_COUNTS = meetingCountByType();
+
+const LOUDEST = MEETINGS_VALID.reduce(
+  (max, m) => m.total_commissioner_words > max.total_commissioner_words ? m : max,
+  MEETINGS_VALID[0] || { total_commissioner_words: 0 }
+);
+
+function topNamesList(n) {
+  const names = COMMISSIONERS_SORTED.slice(0, n).map(([name]) => name.split(' ').slice(-1)[0]);
+  if (names.length <= 1) return names.join('');
+  if (names.length === 2) return names.join(' and ');
+  return names.slice(0, -1).join(', ') + ', and ' + names[names.length - 1];
+}
+
+function dateRangeStr() {
+  const dates = MEETINGS_VALID.map(m => m.date).sort();
+  if (!dates.length) return '';
+  const first = fmtDate(dates[0]);
+  const last = fmtDate(dates[dates.length - 1]);
+  return `${first} through ${last} ${YEAR}`;
+}
+
+function typeBreakdownStr() {
+  const order = ['Regular','Caucus','Special','Reorg'];
+  const label = { Regular: 'Regular session', Caucus: 'Caucus session',
+                  Special: 'Special meeting', Reorg: 'Reorganization' };
+  return order
+    .filter(t => TYPE_COUNTS[t])
+    .map(t => {
+      const n = TYPE_COUNTS[t];
+      const noun = label[t];
+      return t === 'Reorg' && n === 1
+        ? `the ${noun}`
+        : `${n} ${noun}${n === 1 ? '' : 's'}`;
+    })
+    .join(', ');
+}
+
+const BIG_OVERALL = biggestPerformance(null);
+const BIG_REG = biggestPerformance('Regular');
+const BIG_CAU = biggestPerformance('Caucus');
+
+const VALUES = {
+  'year': YEAR,
+  'meeting-count': MEETINGS_VALID.length.toString(),
+  'ratio': RATIO.toLocaleString(),
+  'top-words': TOP[1].total_words.toLocaleString(),
+  'top-name': TOP[0],
+  'bot-words': BOT[1].total_words.toLocaleString(),
+  'bot-name': BOT[0],
+  'dom-share-pct': Math.round(DOM_SHARE * 100) + '%',
+  'dom-group-size': DOM_N.toString(),
+  'dom-group-word': num2word(DOM_N),
+  'rest-group-size': REST_N.toString(),
+  'rest-group-word': num2word(REST_N),
+  'dom-words-of-ten': num2word(Math.round(DOM_SHARE * 10)),
+  'dom-names': topNamesList(DOM_N),
+  'total-commissioners': TOTAL_COMMISSIONERS.toString(),
+  'loudest-words': LOUDEST.total_commissioner_words.toLocaleString(),
+  'loudest-meta': `${fmtDate(LOUDEST.date)} ${LOUDEST.meeting_type}`,
+  'caucus-total': (DATA.summary_by_type.Caucus?.total_words || 0).toLocaleString(),
+  'regular-total': (DATA.summary_by_type.Regular?.total_words || 0).toLocaleString(),
+  'regular-count': (TYPE_COUNTS.Regular || 0).toString(),
+  'caucus-count': (TYPE_COUNTS.Caucus || 0).toString(),
+  'date-range': dateRangeStr(),
+  'type-breakdown': typeBreakdownStr(),
+  'biggest-performance-annot':
+    `The single largest contribution of the year came from <strong>${BIG_OVERALL.name}</strong> at the ${fmtDate(BIG_OVERALL.date)} ${BIG_OVERALL.type} meeting — ${BIG_OVERALL.words.toLocaleString()} content words in one session.`,
+  'regular-annot':
+    `Plotted on a logarithmic Y axis so the quieter speakers stay legible alongside the spikes. The loudest single Regular meeting of the year was <strong>${fmtDate(BIG_REG.date)}</strong>, when ${BIG_REG.name} alone produced ${BIG_REG.words.toLocaleString()} content words.`,
+  'caucus-annot':
+    `${BIG_CAU.name}'s largest single Caucus contribution: <strong>${BIG_CAU.words.toLocaleString()} content words</strong> on ${fmtDate(BIG_CAU.date)}.`,
+};
+
+document.querySelectorAll('[data-d]').forEach(el => {
+  const key = el.getAttribute('data-d');
+  if (key in VALUES) el.innerHTML = VALUES[key];
+});
+
+// ---------- Charts ----------
+
 // Editorial palette — desaturated, paper-friendly
 const PALETTE  = ['#b62a23','#2c4565','#a87436','#5d7a4f','#7b4b6e','#3d6b78','#8a6a3e','#6b4a4a','#9c8e7a'];
 const TYPE_COL = { Regular: '#2c4565', Caucus: '#b62a23', Special: '#a87436', Reorg: '#5d7a4f' };
 
-const commissioners = Object.entries(DATA.summary_by_commissioner)
-  .sort((a,b) => b[1].total_words - a[1].total_words);
-const totalAll = commissioners.reduce((s, [,v]) => s + v.total_words, 0);
+const commissioners = COMMISSIONERS_SORTED;
+const totalAll = TOTAL_WORDS;
 const maxWords = commissioners[0][1].total_words;
 
 // Rank rows
 const ranksEl = document.getElementById('ranks');
 const TITLES = {
-  "William O'Dea": "Chairman pro tempore",
-  "Anthony Romano": "Vice Chairman",
-  "Albert Cifelli": "Commissioner, District 8",
+  // "William O'Dea": "Chairman pro tempore",
+  // "Anthony Romano": "Vice Chairman",
+  // "Albert Cifelli": "Commissioner",
 };
 commissioners.forEach(([name, data], i) => {
   const pct = (data.total_words / totalAll * 100);
   const width = Math.max(1.5, data.total_words / maxWords * 100);
   let tier = 'tier-2';
   if (i === 0) tier = 'tier-1';
-  else if (i >= 3) tier = 'quiet';
+  else if (i >= DOM_N) tier = 'quiet';
   const subtitle = TITLES[name] || 'Commissioner';
   ranksEl.insertAdjacentHTML('beforeend', `
     <div class="rank ${tier}">
